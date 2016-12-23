@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_drawer_open"
+        android:icon="@mipmap/icon_open"
+        android:title="展开侧边栏"
+        app:showAsAction="always" />
+    <item
+        android:title="ABOUT ME"
+        app:showAsAction="never" />
+    <item
+        android:title="TO DO"
+        app:showAsAction="never" />
+
+</menu>

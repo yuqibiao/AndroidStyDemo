@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/dark</color>
+    <color name="colorPrimaryDark">@color/dark</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="dark">#333</color>
+    <color name="usualWhite">#fff</color>
+    <color name="drawerBg">@color/dark</color>
+    <color name="usualBg">#f1f1f1</color>
+    <color name="darkBg">@color/dark</color>
+
+</resources>

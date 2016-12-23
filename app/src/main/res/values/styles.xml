@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+
+    <!--弹出菜单的主题-->
+    <style name="MyPopupTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- 是否覆盖锚点，默认为true，即盖住Toolbar -->
+        <item name="overlapAnchor">true</item>
+        <!-- 弹出层背景颜色 -->
+       <!-- <item name="popupBackground">@color/colorAccent</item>-->
+        <!-- 弹出层垂直方向上的偏移，即在竖直方向上距离Toolbar的距离，值为负则会盖住Toolbar -->
+        <!--<item name="dropDownVerticalOffset">10dp</item>-->
+        <!-- 弹出层水平方向上的偏移，即距离屏幕左边的距离，负值会导致右边出现空隙 -->
+       <!-- <item name="dropDownHorizontalOffset">0dp</item>-->
+        <item name="actionMenuTextColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!--ToolBar的样式-->
+    <style name="BaseToolBarStyle">
+        <item name="popupTheme">@style/MyPopupTheme</item>
+        <item name="titleTextColor">@color/usualWhite</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="MyToolBarStyle" parent="BaseToolBarStyle"/>
+
+    <!--CardView样式-->
+    <style name="BaseCardViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="contentPadding">3dp</item>
+        <item name="cardElevation">4dp</item>
+
+    </style>
+
+
+</resources>
