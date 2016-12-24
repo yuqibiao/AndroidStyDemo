@@ -51,16 +51,18 @@ public abstract class OnRvItemClickListener implements RecyclerView.OnItemTouchL
                         RecyclerView.Adapter adapter = recyclerView.getAdapter();
                         View cView  = recyclerView.findChildViewUnder(e.getX() , e.getY());
                         RecyclerView.ViewHolder vh = recyclerView.getChildViewHolder(cView);
-                        int oldPosition = vh.getAdapterPosition();
-                        if(adapter instanceof HeaderAndFooterWrapper){
-                            if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
-                                    ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
-                                //---TODO
+                        if(vh != null ){
+                            int oldPosition = vh.getAdapterPosition();
+                            if(adapter instanceof HeaderAndFooterWrapper){
+                                if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
+                                        ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
+                                    //---TODO
+                                }else{
+                                    onItemClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
+                                }
                             }else{
-                                onItemClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
+                                onItemClick(oldPosition);
                             }
-                        }else{
-                            onItemClick(oldPosition);
                         }
                         return true;
                     }
@@ -71,16 +73,18 @@ public abstract class OnRvItemClickListener implements RecyclerView.OnItemTouchL
                         RecyclerView.Adapter adapter = recyclerView.getAdapter();
                         View cView  = recyclerView.findChildViewUnder(e.getX() , e.getY());
                         RecyclerView.ViewHolder vh = recyclerView.getChildViewHolder(cView);
-                        int oldPosition = vh.getAdapterPosition();
-                        if(adapter instanceof HeaderAndFooterWrapper){
-                            if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
-                                    ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
-                                //---TODO
+                        if(vh != null){
+                            int oldPosition = vh.getAdapterPosition();
+                            if(adapter instanceof HeaderAndFooterWrapper){
+                                if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
+                                        ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
+                                    //---TODO
+                                }else{
+                                    onItemLongClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
+                                }
                             }else{
-                                onItemLongClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
+                                onItemLongClick(oldPosition);
                             }
-                        }else{
-                            onItemLongClick(oldPosition);
                         }
                     }
                 });
