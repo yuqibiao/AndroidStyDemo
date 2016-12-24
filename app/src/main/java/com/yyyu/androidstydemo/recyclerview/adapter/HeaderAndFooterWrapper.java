@@ -1,18 +1,23 @@
 package com.yyyu.androidstydemo.recyclerview.adapter;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 /**
  * 功能：扩展Adapter 使得能添加Header和Footer
  *
- *思路：
- *
- *
  * key：
- * 使用设计模式中的装饰者模式
+ * 1.装饰者模式对原有的Adapter进行扩展
+ * 2.核心思路是通过getItemViewType的返回在onCreateViewHolder方法里判断viewType的值
+ * 来确定是头部还是内容或者是底部Item。
+ * 3.
  *
  *
  * 参考：http://blog.csdn.net/lmj623565791/article/details/51854533
@@ -88,6 +93,15 @@ public class HeaderAndFooterWrapper extends RecyclerView.Adapter{
     }
 
     /**
+     * 得到Header的个数
+     *
+     * @return
+     */
+    public int  getHeaderCount(){
+        return headerList.size();
+    }
+
+    /**
      * 添加Footer
      *
      * @param footerView
@@ -112,6 +126,41 @@ public class HeaderAndFooterWrapper extends RecyclerView.Adapter{
     public int getRealItemCount(){
         return innerAdapter.getItemCount();
     }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        innerAdapter.onAttachedToRecyclerView(recyclerView);
+        //处理GridLayoutManager时Header和Footer不单独占一行
+        final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+        if(layoutManager instanceof GridLayoutManager){
+            ((GridLayoutManager) layoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    //Returns the number of span occupied by the item at position.
+                    //返回1表示占一个格子，为Header或者Footer的时候设置为Grid的列数也就是一行。
+                    if(isHeaderPosition(position) || isFooterPosition(position)){
+                        return ((GridLayoutManager) layoutManager).getSpanCount();
+                    }else{
+                        return 1;
+                    }
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+        innerAdapter.onViewAttachedToWindow(holder);
+        //处理StaggerGridLayoutManager的Header和Footer不跨行的情况。
+        int position = holder.getLayoutPosition();
+        if (isHeaderPosition(position) || isFooterPosition(position)){
+           ViewGroup.LayoutParams lp =  holder.itemView.getLayoutParams();
+            if (lp!=null && lp instanceof StaggeredGridLayoutManager.LayoutParams){
+                ((StaggeredGridLayoutManager.LayoutParams) lp).setFullSpan(true);
+            }
+        }
+    }
+
 
 
 }

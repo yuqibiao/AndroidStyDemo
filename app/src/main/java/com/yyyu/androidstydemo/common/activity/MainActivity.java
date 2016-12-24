@@ -2,8 +2,10 @@ package com.yyyu.androidstydemo.common.activity;
 
 
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -38,7 +40,9 @@ public class MainActivity extends BaseActivity {
 
         //----set
         setSupportActionBar(tbMain);
-        rvMainContent.setLayoutManager(new LinearLayoutManager(this));
+        rvMainContent.setLayoutManager(new GridLayoutManager(this , 3));
+        /*StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3 , StaggeredGridLayoutManager.VERTICAL);
+        rvMainContent.setLayoutManager(layoutManager);*/
     }
 
     @Override

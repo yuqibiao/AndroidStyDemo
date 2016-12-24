@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.yyyu.androidstydemo.R;
 
+import java.util.Random;
+
 /**
  * 功能：主页内容的Adapter
  *
@@ -33,12 +35,14 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
 
     @Override
     public void onBindViewHolder(ContentViewHolder holder, int position) {
+        /*ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
+        layoutParams.height = new Random().nextInt(400)+150;*/
         holder.tvMainContent.setText("普通方式添加Adapter");
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 15;
     }
 
     public class ContentViewHolder extends RecyclerView.ViewHolder{
@@ -50,6 +54,5 @@ public class MainContentAdapter extends RecyclerView.Adapter<MainContentAdapter.
             tvMainContent = (TextView) itemView.findViewById(R.id.tv_main_content);
         }
     }
-
 
 }

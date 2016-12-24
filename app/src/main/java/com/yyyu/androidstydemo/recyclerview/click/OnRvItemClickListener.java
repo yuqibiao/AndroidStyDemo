@@ -6,6 +6,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.yyyu.androidstydemo.recyclerview.adapter.HeaderAndFooterWrapper;
+
 /**
  * 功能：对RecyclerView 点击时间&长按事件的封装
  *
@@ -30,7 +32,7 @@ import android.view.View;
  * 2.SimpleOnGestureListener 是OnGestureListener的一个空实现。
  * 3.RecyclerView 的findChildViewUnder(e.getX() , e.getY());通过位置得到子view。
  * 4.RecyclerView的getChildViewHolder方法通过传入子view得到子iew的ViewHolder。
- *
+ *5.兼容HeaderAndFooterWrapper，Header的Item个数去掉。且设置Header和Footer不可点击。
  *
  * 参考：http://www.jianshu.com/p/c5596537aa34
  *
@@ -44,13 +46,21 @@ public abstract class OnRvItemClickListener implements RecyclerView.OnItemTouchL
     public OnRvItemClickListener(final RecyclerView recyclerView){
         mGestureDetector = new GestureDetectorCompat(recyclerView.getContext(),
                 new GestureDetector.SimpleOnGestureListener() {
-
                     @Override
                     public boolean onSingleTapUp(MotionEvent e) {
+                        RecyclerView.Adapter adapter = recyclerView.getAdapter();
                         View cView  = recyclerView.findChildViewUnder(e.getX() , e.getY());
-                        if(cView != null){
-                            RecyclerView.ViewHolder vh = recyclerView.getChildViewHolder(cView);
-                            onItemClick(vh.getAdapterPosition());
+                        RecyclerView.ViewHolder vh = recyclerView.getChildViewHolder(cView);
+                        int oldPosition = vh.getAdapterPosition();
+                        if(adapter instanceof HeaderAndFooterWrapper){
+                            if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
+                                    ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
+                                //---TODO
+                            }else{
+                                onItemClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
+                            }
+                        }else{
+                            onItemClick(oldPosition);
                         }
                         return true;
                     }
@@ -58,15 +68,26 @@ public abstract class OnRvItemClickListener implements RecyclerView.OnItemTouchL
                     @Override
                     public void onLongPress(MotionEvent e) {
                         super.onLongPress(e);
+                        RecyclerView.Adapter adapter = recyclerView.getAdapter();
                         View cView  = recyclerView.findChildViewUnder(e.getX() , e.getY());
-                        if(cView != null){
-                            RecyclerView.ViewHolder vh = recyclerView.getChildViewHolder(cView);
-                            onItemLongClick(vh.getAdapterPosition());
+                        RecyclerView.ViewHolder vh = recyclerView.getChildViewHolder(cView);
+                        int oldPosition = vh.getAdapterPosition();
+                        if(adapter instanceof HeaderAndFooterWrapper){
+                            if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
+                                    ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
+                                //---TODO
+                            }else{
+                                onItemLongClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
+                            }
+                        }else{
+                            onItemLongClick(oldPosition);
                         }
                     }
                 });
 
     }
+
+
 
     @Override
     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
