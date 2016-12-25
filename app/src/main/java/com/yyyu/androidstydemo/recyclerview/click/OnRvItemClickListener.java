@@ -56,7 +56,7 @@ public abstract class OnRvItemClickListener implements RecyclerView.OnItemTouchL
                             if(adapter instanceof HeaderAndFooterWrapper){
                                 if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
                                         ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
-                                    //---TODO
+                                    //---
                                 }else{
                                     onItemClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
                                 }
@@ -78,7 +78,7 @@ public abstract class OnRvItemClickListener implements RecyclerView.OnItemTouchL
                             if(adapter instanceof HeaderAndFooterWrapper){
                                 if ( ((HeaderAndFooterWrapper) adapter).isHeaderPosition(oldPosition)
                                         ||((HeaderAndFooterWrapper) adapter).isFooterPosition(oldPosition) ){
-                                    //---TODO
+                                    //---
                                 }else{
                                     onItemLongClick(oldPosition- ((HeaderAndFooterWrapper) adapter).getHeaderCount());
                                 }

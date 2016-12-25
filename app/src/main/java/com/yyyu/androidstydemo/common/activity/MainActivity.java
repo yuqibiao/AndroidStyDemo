@@ -40,7 +40,8 @@ public class MainActivity extends BaseActivity {
 
         //----set
         setSupportActionBar(tbMain);
-        rvMainContent.setLayoutManager(new GridLayoutManager(this , 3));
+        rvMainContent.setLayoutManager(new LinearLayoutManager(this));
+        //rvMainContent.setLayoutManager(new GridLayoutManager(this , 3));
         /*StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3 , StaggeredGridLayoutManager.VERTICAL);
         rvMainContent.setLayoutManager(layoutManager);*/
     }
