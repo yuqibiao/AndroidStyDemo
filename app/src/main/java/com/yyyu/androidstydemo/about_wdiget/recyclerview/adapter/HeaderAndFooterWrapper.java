@@ -1,14 +1,11 @@
-package com.yyyu.androidstydemo.recyclerview.adapter;
+package com.yyyu.androidstydemo.about_wdiget.recyclerview.adapter;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.List;
 
 /**
  * 功能：扩展Adapter 使得能添加Header和Footer

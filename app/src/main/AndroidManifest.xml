@@ -3,19 +3,38 @@
     package="com.yyyu.androidstydemo">
 
     <application
+        android:name=".common.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".common.MyApplication"
         android:theme="@style/MyAppTheme">
-        <activity android:name=".common.activity.MainActivity">
+        <activity android:name=".common.activity.MainActivity"></activity>
+
+        <activity android:name=".about_skill.debug_test.DebugTestActivity">
+
+        </activity>
+
+        <!--Accessibility service -->
+        <service
+            android:name=".about_skill.accessibility_service.MyAccessibilityService"
+            android:label="辅助服务测试"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+        <activity android:name=".about_skill.accessibility_service.AccessibilityServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".about_skill.accessibility_service.AddLockActivity"/>
+
     </application>
 
 </manifest>

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         app:title="@string/main_title" />
 
-    <com.yyyu.androidstydemo.recyclerview.refresh.SwipeRefreshLayoutWrapper
+    <com.yyyu.androidstydemo.about_wdiget.recyclerview.refresh.SwipeRefreshLayoutWrapper
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <android.support.v7.widget.RecyclerView
@@ -22,6 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"/>
-    </com.yyyu.androidstydemo.recyclerview.refresh.SwipeRefreshLayoutWrapper>
+    </com.yyyu.androidstydemo.about_wdiget.recyclerview.refresh.SwipeRefreshLayoutWrapper>
 
 </LinearLayout>

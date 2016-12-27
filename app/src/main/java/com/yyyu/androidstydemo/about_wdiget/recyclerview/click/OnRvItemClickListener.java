@@ -1,4 +1,4 @@
-package com.yyyu.androidstydemo.recyclerview.click;
+package com.yyyu.androidstydemo.about_wdiget.recyclerview.click;
 
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.RecyclerView;
@@ -6,7 +6,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.yyyu.androidstydemo.recyclerview.adapter.HeaderAndFooterWrapper;
+import com.yyyu.androidstydemo.about_wdiget.recyclerview.adapter.HeaderAndFooterWrapper;
 
 /**
  * 功能：对RecyclerView 点击时间&长按事件的封装

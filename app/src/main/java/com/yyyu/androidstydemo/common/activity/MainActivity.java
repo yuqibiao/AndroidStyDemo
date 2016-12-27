@@ -2,10 +2,8 @@ package com.yyyu.androidstydemo.common.activity;
 
 
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,8 +15,8 @@ import com.yyyu.androidstydemo.R;
 import com.yyyu.androidstydemo.common.adapter.DrawerItemAdapter;
 import com.yyyu.androidstydemo.common.adapter.MainContentAdapter;
 import com.yyyu.androidstydemo.common.wdiget.LinearAdapterLayout;
-import com.yyyu.androidstydemo.recyclerview.adapter.HeaderAndFooterWrapper;
-import com.yyyu.androidstydemo.recyclerview.click.OnRvItemClickListener;
+import com.yyyu.androidstydemo.about_wdiget.recyclerview.adapter.HeaderAndFooterWrapper;
+import com.yyyu.androidstydemo.about_wdiget.recyclerview.click.OnRvItemClickListener;
 
 public class MainActivity extends BaseActivity {
 

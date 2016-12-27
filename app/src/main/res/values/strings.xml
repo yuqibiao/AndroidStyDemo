@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AndroidStyDemo</string>
     <string name="main_title">Android测试Demo</string>
+    <string name="accessibility_service_description">辅助服务的描述</string>
 </resources>

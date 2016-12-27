@@ -1,4 +1,4 @@
-package com.yyyu.androidstydemo.recyclerview.refresh;
+package com.yyyu.androidstydemo.about_wdiget.recyclerview.refresh;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,11 +12,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.widget.HeaderViewListAdapter;
 import android.widget.ListView;
 
 import com.yyyu.androidstydemo.R;
-import com.yyyu.androidstydemo.recyclerview.adapter.HeaderAndFooterWrapper;
+import com.yyyu.androidstydemo.about_wdiget.recyclerview.adapter.HeaderAndFooterWrapper;
 
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
