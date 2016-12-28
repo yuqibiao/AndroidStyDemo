@@ -30,7 +30,7 @@ import static android.view.MotionEvent.ACTION_UP;
 
 public class SwipeRefreshLayoutWrapper extends SwipeRefreshLayout{
 
-    private static final String TAG = "SwipeRefreshLayoutWrapp";
+    private static final String TAG = "SwipeRefreshLayoutWrapper";
 
     private Context mContext;
     private RecyclerView mRecyclerView;

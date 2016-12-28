@@ -2,6 +2,7 @@ package com.yyyu.androidstydemo.about_skill.accessibility_service;
 
 import android.content.Intent;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 
 import com.yyyu.androidstydemo.R;
@@ -17,6 +18,8 @@ import com.yyyu.androidstydemo.common.activity.BaseActivity;
 
 public class AccessibilityServiceActivity extends BaseActivity{
 
+    private static final String TAG = "AccessibilityServiceAct";
+
     @Override
     protected int setLayoutId() {
         return R.layout.activity_accesibility_service;
@@ -30,6 +33,15 @@ public class AccessibilityServiceActivity extends BaseActivity{
     @Override
     protected void initListener() {
 
+    }
+
+    public  void stopForegroundService(View view){
+        stopService(new Intent(this , ForegroundService.class));
+    }
+
+    public void startForegroundService(View view){
+        Log.e(TAG, "startForegroundService: ");
+        startService(new Intent(this , ForegroundService.class));
     }
 
     public void addAppLocked(View view){

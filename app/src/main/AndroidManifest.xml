@@ -34,6 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".about_skill.accessibility_service.AddLockActivity"/>
+        <service android:name=".about_skill.accessibility_service.ForegroundService"/>
 
     </application>
 
