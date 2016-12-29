@@ -27,6 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      *
      */
     public void init(){
+        beforeInit();
         initView();
         initListener();
         initData();
@@ -40,6 +41,10 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @return
      */
     protected abstract int setLayoutId();
+
+    protected  void beforeInit(){
+
+    }
 
     /**
      * 初始化布局文件

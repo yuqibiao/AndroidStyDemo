@@ -26,6 +26,13 @@ public class AccessibilityServiceActivity extends BaseActivity{
     }
 
     @Override
+    protected void beforeInit() {
+        //----------开始灰色保活Service
+        stopService(new Intent(this , GrayService.class));
+        startService(new Intent(this , GrayService.class));
+    }
+
+    @Override
     protected void initView() {
 
     }
