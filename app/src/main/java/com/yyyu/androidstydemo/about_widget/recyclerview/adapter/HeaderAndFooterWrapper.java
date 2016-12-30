@@ -1,4 +1,4 @@
-package com.yyyu.androidstydemo.about_wdiget.recyclerview.adapter;
+package com.yyyu.androidstydemo.about_widget.recyclerview.adapter;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yyyu.androidstydemo.about_wdiget.custom;
+package com.yyyu.androidstydemo.about_widget.custom.md_progress;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -47,6 +47,8 @@ import java.util.ArrayList;
  * Fancy progress indicator for Material theme.
  */
 public  class MaterialProgressDrawable extends Drawable implements Animatable {
+
+    private static final String TAG = "MaterialProgressDrawabl";
 
 
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
@@ -345,8 +347,7 @@ public  class MaterialProgressDrawable extends Drawable implements Animatable {
         // starting other circles
         // Rotation goes between [0..1].
         updateRingColor(interpolatedTime, ring);
-        float targetRotation = (float) (Math.floor(ring.getStartingRotation() / MAX_PROGRESS_ARC)
-                + 1f);
+        float targetRotation = (float) (Math.floor(ring.getStartingRotation() / MAX_PROGRESS_ARC) + 1f);
         final float minProgressArc = getMinProgressArc(ring);
         final float startTrim = ring.getStartingStartTrim()
                 + (ring.getStartingEndTrim() - minProgressArc - ring.getStartingStartTrim())
@@ -502,7 +503,7 @@ public  class MaterialProgressDrawable extends Drawable implements Animatable {
             mPaint.setAntiAlias(true);
             mPaint.setStyle(Style.STROKE);
 
-            mArrowPaint.setStyle(Paint.Style.FILL);
+            mArrowPaint.setStyle(Style.FILL);
             mArrowPaint.setAntiAlias(true);
         }
 
@@ -533,24 +534,25 @@ public  class MaterialProgressDrawable extends Drawable implements Animatable {
             final float endAngle = (mEndTrim + mRotation) * 360;
             float sweepAngle = endAngle - startAngle;
 
-            mPaint.setColor(mCurrentColor);
-            c.drawArc(arcBounds, startAngle, sweepAngle, false, mPaint);
-
-            drawTriangle(c, startAngle, sweepAngle, bounds);
-
             if (mAlpha < 255) {
                 mCirclePaint.setColor(mBackgroundColor);
                 mCirclePaint.setAlpha(255 - mAlpha);
                 c.drawCircle(bounds.exactCenterX(), bounds.exactCenterY(), bounds.width() / 2,
                         mCirclePaint);
             }
+
+            mPaint.setColor(mCurrentColor);
+            c.drawArc(arcBounds, startAngle, sweepAngle, false, mPaint);
+
+            drawTriangle(c, startAngle, sweepAngle, bounds);
+
         }
 
         private void drawTriangle(Canvas c, float startAngle, float sweepAngle, Rect bounds) {
             if (mShowArrow) {
                 if (mArrow == null) {
-                    mArrow = new android.graphics.Path();
-                    mArrow.setFillType(android.graphics.Path.FillType.EVEN_ODD);
+                    mArrow = new Path();
+                    mArrow.setFillType(Path.FillType.EVEN_ODD);
                 } else {
                     mArrow.reset();
                 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.yyyu.androidstydemo.R;
 import com.yyyu.androidstydemo.common.activity.BaseActivity;
@@ -28,7 +29,6 @@ public class AccessibilityServiceActivity extends BaseActivity{
     @Override
     protected void beforeInit() {
         //----------开始灰色保活Service
-        stopService(new Intent(this , GrayService.class));
         startService(new Intent(this , GrayService.class));
     }
 
@@ -40,6 +40,20 @@ public class AccessibilityServiceActivity extends BaseActivity{
     @Override
     protected void initListener() {
 
+    }
+
+    public void checkForeground(View view){
+        boolean isForeground = LogicUtils.isAppOnForeground(this , "com.yyyu.androidstydemo");
+        Toast.makeText(this, "isForeground=="+isForeground, Toast.LENGTH_SHORT).show();
+    }
+
+    public void checkAccessibility(View view){
+        String serviceName = "com.yyyu.androidstydemo.about_skill.accessibility_service.MyAccessibilityService";
+        if(LogicUtils.isAccessibilityEnable(this , serviceName)){
+            Toast.makeText(this, "辅助服务 已经 被打开", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "辅助服务 尚未 被打开", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public  void stopForegroundService(View view){
@@ -60,5 +74,6 @@ public class AccessibilityServiceActivity extends BaseActivity{
         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
         startActivity(intent);
     }
+
 
 }

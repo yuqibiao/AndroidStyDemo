@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yyyu.androidstydemo">
 
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
     <application
         android:name=".common.MyApplication"
         android:allowBackup="true"
@@ -10,13 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme">
         <activity android:name=".common.activity.MainActivity">
-         <!--   <intent-filter>
+          <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
 
         <activity android:name=".about_skill.debug_test.DebugTestActivity">
+
+        </activity>
+
+        <activity android:name=".about_widget.custom.CustomWidgetActivity">
 
         </activity>
 
@@ -33,16 +39,20 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
         <activity android:name=".about_skill.accessibility_service.AccessibilityServiceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".about_skill.accessibility_service.AddLockActivity"/>
         <service android:name=".about_skill.accessibility_service.ForegroundService"/>
         <!--gray service -->
         <service android:name=".about_skill.accessibility_service.GrayService"/>
         <service android:name=".about_skill.accessibility_service.GrayService$GrayInnerService"/>
+
+        <!--animation test-->
+        <activity android:name=".about_animation.view_animation.ViewAnimationTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

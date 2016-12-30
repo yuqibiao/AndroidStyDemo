@@ -21,6 +21,7 @@ import com.yyyu.androidstydemo.common.utils.MySPUtils;
  * 参考：
  * https://mp.weixin.qq.com/s/7L2ysyTlFR1Xz4tk73dxuA（总的概括）
  * http://blog.csdn.net/guolin_blog/article/details/47803149（实现静默安装）
+ * http://blog.csdn.net/dd864140130/article/details/51794318(深入理解)
  *
  * Created by yyyu on 2016/12/26.
  */

@@ -43,24 +43,24 @@ public class GrayService extends Service{
             startService(innerIntent);
             startForeground(GRAY_SERVICE_ID, new Notification());
         }
+    }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     while (true){
                         Thread.sleep(1000);
-                        Log.e(TAG, "run: =================gray service" );
+                        boolean isForeground = LogicUtils.isAppOnForeground(GrayService.this , "com.yyyu.androidstydemo");
+                        Log.e(TAG, "run: ==============isForeground="+isForeground );
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }).start();
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
         Log.e(TAG, "onStartCommand: ===============================" );
         return super.onStartCommand(intent, flags, startId);
     }

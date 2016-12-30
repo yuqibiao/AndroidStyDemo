@@ -1,7 +1,6 @@
-package com.yyyu.androidstydemo.about_wdiget.recyclerview.refresh;
+package com.yyyu.androidstydemo.about_widget.recyclerview.refresh;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,12 +11,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.yyyu.androidstydemo.R;
-import com.yyyu.androidstydemo.about_wdiget.custom.MaterialProgressDrawable;
-import com.yyyu.androidstydemo.about_wdiget.recyclerview.adapter.HeaderAndFooterWrapper;
+import com.yyyu.androidstydemo.about_widget.recyclerview.adapter.HeaderAndFooterWrapper;
 
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
@@ -79,18 +76,6 @@ public class SwipeRefreshLayoutWrapper extends SwipeRefreshLayout{
                     RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
                     if (adapter instanceof  HeaderAndFooterWrapper){
                         View footer = LayoutInflater.from(mContext).inflate(R.layout.loade_more_footer , mRecyclerView , false);
-                        ImageView ivProgress = (ImageView) footer.findViewById(R.id.iv_progress);
-                        MaterialProgressDrawable progressDrawable = new MaterialProgressDrawable(mContext , ivProgress);
-                        progressDrawable.setBackgroundColor(Color.parseColor("#ffffff"));
-                        progressDrawable.setColorSchemeColors(Color.parseColor("#00ff00"),Color.parseColor("#0000ff"));
-                        progressDrawable.updateSizes(MaterialProgressDrawable.LARGE);
-                        progressDrawable.setAlpha(255);
-                        progressDrawable.setStartEndTrim(0f, 0.8f);
-                        progressDrawable.setArrowScale(1f); //0~1之间
-                        progressDrawable.setProgressRotation(1);
-                        progressDrawable.showArrow(true);
-                        progressDrawable.start();
-                        ivProgress.setImageDrawable(progressDrawable);
                         ((HeaderAndFooterWrapper) adapter).addFooter(footer);
                         adapter.notifyDataSetChanged();
                     }else if(adapter instanceof RecyclerView.Adapter){

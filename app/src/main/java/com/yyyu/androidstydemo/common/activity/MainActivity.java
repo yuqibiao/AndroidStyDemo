@@ -15,8 +15,8 @@ import com.yyyu.androidstydemo.R;
 import com.yyyu.androidstydemo.common.adapter.DrawerItemAdapter;
 import com.yyyu.androidstydemo.common.adapter.MainContentAdapter;
 import com.yyyu.androidstydemo.common.wdiget.LinearAdapterLayout;
-import com.yyyu.androidstydemo.about_wdiget.recyclerview.adapter.HeaderAndFooterWrapper;
-import com.yyyu.androidstydemo.about_wdiget.recyclerview.click.OnRvItemClickListener;
+import com.yyyu.androidstydemo.about_widget.recyclerview.adapter.HeaderAndFooterWrapper;
+import com.yyyu.androidstydemo.about_widget.recyclerview.click.OnRvItemClickListener;
 
 public class MainActivity extends BaseActivity {
 

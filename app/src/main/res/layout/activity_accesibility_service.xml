@@ -28,5 +28,16 @@
         android:layout_height="wrap_content"
         android:onClick="stopForegroundService"
         android:text="关闭前台Service" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkAccessibility"
+        android:text="检测辅助功能是否开启" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkForeground"
+        android:text="判断是否在前台运行" />
 
 </LinearLayout>
