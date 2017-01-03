@@ -35,4 +35,9 @@ public class ArcBean {
     public void setOffset(float offset) {
         this.offset = offset;
     }
+
+    @Override
+    public String toString() {
+        return "angle="+angle+"  offset="+offset;
+    }
 }
