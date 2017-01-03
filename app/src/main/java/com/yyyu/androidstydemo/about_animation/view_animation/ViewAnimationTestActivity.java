@@ -18,6 +18,19 @@ import com.yyyu.androidstydemo.common.activity.BaseActivity;
 /**
  * 功能：View 动画的测试
  *
+ *要点：
+ *
+ * fillBefore是指动画结束时画面停留在此动画的第一帧;
+ *fillAfter是指动画结束是画面停留在此动画的最后一帧。
+ *
+ * xml配置中，500(只写数字) 表示相对屏幕坐标系的绝对位置，50%（数值+%）表示相对于自身的百分比。
+ * 50%p(数值+%+p)表示相对于父容器的百分比。scale动画配置的是浮点数，1.2表示缩放到自身的1.2倍。
+ *
+ * Animation Set 里面可以再加入 Animation Set
+ *
+ * setStartOffset 用来设置动画开启的时间，达到延迟执行动画的效果。但是在Alpha动画中setStartOffset
+ *透明度会先变为动画后的值。
+ *
  *
  * Created by yyyu on 2016/12/30.
  */
@@ -43,6 +56,11 @@ public class ViewAnimationTestActivity extends BaseActivity{
 
     }
 
+    public void testMixUseXml(View view){
+        Animation animation = AnimationUtils.loadAnimation(this , R.anim.mix_animation_test);
+        vTest.startAnimation(animation);
+    }
+
     /**
      * 一个综合的案例
      *
@@ -52,8 +70,6 @@ public class ViewAnimationTestActivity extends BaseActivity{
      * 又执行一个Rotate动画并且执行RELATIVE_TO_SELF为0.5f,旋转的位置不是预期中的位
      * 移动画以后View位置的一半，而还是最初View位置的一半处。
      *
-     * fillBefore是指动画结束时画面停留在此动画的第一帧;
-     * illAfter是指动画结束是画面停留在此动画的最后一帧。
      */
     public void testMix(final View view ){
 

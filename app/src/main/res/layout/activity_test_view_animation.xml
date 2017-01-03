@@ -33,6 +33,11 @@
             android:layout_height="wrap_content"
             android:onClick="testMix"
             android:text="TEST_MIX" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="testMixUseXml"
+            android:text="TEST_MIX_USE__XML" />
     </LinearLayout>
 
 </LinearLayout>
