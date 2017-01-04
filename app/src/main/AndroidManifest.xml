@@ -50,6 +50,10 @@
         <activity android:name=".about_animation.view_animation.ViewAnimationTestActivity">
         </activity>
         <activity android:name=".about_animation.object_animation.ObjectAnimationTestActivity">
+        </activity>
+
+        <!--event事件相关-->
+        <activity android:name=".about_event.drag.TestDragActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
