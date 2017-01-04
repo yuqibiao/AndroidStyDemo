@@ -16,7 +16,8 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/img_test"/>
         <com.yyyu.androidstydemo.about_animation.object_animation.advanced.ArcAnimView
-            android:background="#ffffff"
+            android:padding="2dp"
+            android:id="@+id/anim_view"
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -60,6 +61,11 @@
             android:layout_height="wrap_content"
             android:onClick="testViewPropertyAnimator"
             android:text="TEST_VIEW_PROPERTY_ANIMATOR"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="testColorAnim"
+            android:text="TEST_COLOR_ANIM"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.yyyu.androidstydemo.R;
+import com.yyyu.androidstydemo.about_animation.object_animation.advanced.ArcAnimView;
+import com.yyyu.androidstydemo.about_animation.object_animation.advanced.ColorEvaluator;
 import com.yyyu.androidstydemo.common.activity.BaseActivity;
 
 /**
@@ -35,6 +37,7 @@ public class ObjectAnimationTestActivity extends BaseActivity {
     private static final String TAG = "ObjectAnimationTestActi";
 
     private ImageView ivTest;
+    private ArcAnimView animView;
 
     @Override
     protected int setLayoutId() {
@@ -44,11 +47,21 @@ public class ObjectAnimationTestActivity extends BaseActivity {
     @Override
     protected void initView() {
         ivTest = getView(R.id.iv_test);
+        animView = getView(R.id.anim_view);
+
     }
 
     @Override
     protected void initListener() {
 
+    }
+
+    public void testColorAnim(View view){
+        ObjectAnimator objectAnimator = ObjectAnimator.ofObject(animView , "color",new ColorEvaluator() , "#f0f" , "#ff0");
+        objectAnimator.setDuration(8000);
+        objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        objectAnimator.start();
     }
 
 

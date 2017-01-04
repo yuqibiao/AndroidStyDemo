@@ -1,7 +1,5 @@
 package com.yyyu.androidstydemo.about_animation.object_animation.advanced;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -26,6 +24,10 @@ public class ArcAnimView extends View{
     private RectF rectF;
     private Paint mPaint;
     private ValueAnimator anim;
+    /**
+     * 新增一个color属性，并提供get set方法。
+     */
+    private String color;
 
     public ArcAnimView(Context context) {
         this(context , null);
@@ -41,14 +43,15 @@ public class ArcAnimView extends View{
         mPaint = new Paint();
         mPaint.setStrokeWidth(6);
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.parseColor("#ff00ff"));
+        color = "#ff00ff";
+        mPaint.setColor(Color.parseColor(color));
         //--使用valueAnimator
         anim = ValueAnimator.ofObject
                 (new ArcEvaluator(),new ArcBean(0 , 0) , new ArcBean(360 , 360) );
         anim.setInterpolator(new ArcInterpolator());
         anim.setRepeatCount(ValueAnimator.INFINITE);
         anim.setRepeatMode(ValueAnimator.RESTART);
-        anim.setDuration(1000);
+        anim.setDuration(2000);
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -96,5 +99,15 @@ public class ArcAnimView extends View{
             anim.cancel();
         }
         Log.e(TAG, "onWindowVisibilityChanged: ====visibility："+visibility );
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+        mPaint.setColor(Color.parseColor(color));
+        postInvalidate();
     }
 }
